@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://5opdis232aq"]
+
+[ext_resource type="Script" uid="uid://d3c3wrkq6huqr" path="res://scenes/ui/player/online_users.gd" id="1_1ro00"]
+
+[node name="online_users" type="VBoxContainer" unique_id=998482694]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ro00")

@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bleot4godk2sf"]
 
 [ext_resource type="Script" uid="uid://fg4gyhs8p0yu" path="res://scenes/ui/main/main.gd" id="1_3lgjr"]
+[ext_resource type="PackedScene" uid="uid://5opdis232aq" path="res://scenes/ui/player/online_users.tscn" id="2_kabir"]
+[ext_resource type="PackedScene" uid="uid://cfyvkpmw1q2bj" path="res://scenes/ui/player/player_input.tscn" id="3_nyxlg"]
 
-[node name="main" type="Control" unique_id=1174146794 node_paths=PackedStringArray("label", "button")]
+[node name="main" type="Control" unique_id=1174146794 node_paths=PackedStringArray("label", "button", "start_view", "player_input_scene")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,21 +12,55 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3lgjr")
-label = NodePath("label")
-button = NodePath("button")
+label = NodePath("active_scences/start_view/grid_container/v_box_container/label")
+button = NodePath("active_scences/start_view/grid_container/v_box_container/button")
+start_view = NodePath("active_scences/start_view")
+player_input_scene = NodePath("active_scences/player_input")
 
-[node name="label" type="Label" parent="." unique_id=2061398769]
-layout_mode = 0
-offset_left = 179.0
-offset_top = 32.0
-offset_right = 306.0
-offset_bottom = 55.0
+[node name="active_scences" type="Control" parent="." unique_id=2140659767]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="start_view" type="MarginContainer" parent="active_scences" unique_id=306621849]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="grid_container" type="GridContainer" parent="active_scences/start_view" unique_id=1391498273]
+layout_mode = 2
+columns = 2
+
+[node name="online_users" parent="active_scences/start_view/grid_container" unique_id=998482694 instance=ExtResource("2_kabir")]
+layout_mode = 2
+size_flags_horizontal = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="v_box_container" type="VBoxContainer" parent="active_scences/start_view/grid_container" unique_id=1666833592]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label" type="Label" parent="active_scences/start_view/grid_container/v_box_container" unique_id=2061398769]
+layout_mode = 2
 text = "jhkjhkjkjkjkjhhkj"
 
-[node name="button" type="Button" parent="." unique_id=2053278181]
-layout_mode = 0
-offset_left = 188.0
-offset_top = 70.0
-offset_right = 281.0
-offset_bottom = 101.0
+[node name="button" type="Button" parent="active_scences/start_view/grid_container/v_box_container" unique_id=2053278181]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Zähle hoch"
+
+[node name="player_input" parent="active_scences" unique_id=1759749274 instance=ExtResource("3_nyxlg")]
+visible = false
+layout_mode = 1

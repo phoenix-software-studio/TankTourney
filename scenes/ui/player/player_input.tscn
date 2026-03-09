@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cfyvkpmw1q2bj"]
+
+[ext_resource type="Script" uid="uid://c46jg017ehtfb" path="res://scenes/ui/player/player_input.gd" id="1_8ov2g"]
+
+[node name="player_input" type="Control" unique_id=1759749274 node_paths=PackedStringArray("input_field", "submit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8ov2g")
+input_field = NodePath("v_box_container/h_box_container/user_input")
+submit_button = NodePath("v_box_container/submit_button")
+
+[node name="v_box_container" type="VBoxContainer" parent="." unique_id=1551592460]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.43209878
+anchor_right = 1.0
+anchor_bottom = 0.56790125
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="h_box_container" type="HBoxContainer" parent="v_box_container" unique_id=1815399281]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="label" type="Label" parent="v_box_container/h_box_container" unique_id=1985398651]
+layout_mode = 2
+text = "<insert_your_name_colon>"
+
+[node name="user_input" type="LineEdit" parent="v_box_container/h_box_container" unique_id=1082893278]
+layout_mode = 2
+size_flags_horizontal = 3
+max_length = 64
+
+[node name="submit_button" type="Button" parent="v_box_container" unique_id=973897938]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "<submit>"
