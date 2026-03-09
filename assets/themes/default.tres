@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://d2cljjujad6bw"]
+
+[ext_resource type="FontFile" uid="uid://mr20ro1njd34" path="res://assets/fonts/NotoSans-Regular.ttf" id="1_x0tin"]
+
+[resource]
+default_font = ExtResource("1_x0tin")
+default_font_size = 24
