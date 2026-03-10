@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d4ci7fohnsnja"]
+
+[ext_resource type="Script" uid="uid://dr4gafno51m4t" path="res://scenes/ui/player/player_info.gd" id="1_7o50s"]
+
+[node name="player_info" type="Label" unique_id=267925888 node_paths=PackedStringArray("player_info_timer")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7o50s")
+player_info_timer = NodePath("player_info_timer")
+
+[node name="player_info_timer" type="Timer" parent="." unique_id=1208061028]
+wait_time = 3.0
+one_shot = true

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://5opdis232aq"]
+
+[ext_resource type="Script" uid="uid://d3c3wrkq6huqr" path="res://scenes/ui/player/online_players.gd" id="1_1ro00"]
+
+[node name="online_users" type="MarginContainer" unique_id=904094586 node_paths=PackedStringArray("user_list_v_box_container")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_1ro00")
+user_list_v_box_container = NodePath("v_box_container/users")
+
+[node name="v_box_container" type="VBoxContainer" parent="." unique_id=747690490]
+layout_mode = 2
+
+[node name="online_users_label" type="Label" parent="v_box_container" unique_id=837843353]
+layout_mode = 2
+text = "<online_players_count>"
+
+[node name="users" type="VBoxContainer" parent="v_box_container" unique_id=720718842]
+layout_mode = 2
