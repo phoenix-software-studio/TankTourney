@@ -13,9 +13,10 @@ This source code is made public for transparency, educational purposes, and revi
 
 ### 3. Third-Party Content & Trademarks
 This project contains assets (including but not limited to map images, tank icons, and logos) that are the property of Wargaming.net. 
-* These assets are used in accordance with the Wargaming Fan Content Policy.
+* These assets are used in accordance with the Wargaming Player Content Policy.
 * The proprietary license of "TankTourney" does NOT apply to these assets.
-* TankTourney is not affiliated with, endorsed by, or sponsored by Wargaming.net.
+* This work includes trademarks and/or copyrighted works that are the exclusive property of Wargaming. All rights reserved by Wargaming. This work is unofficial and is not endorsed by Wargaming.
+[Wargaming Player Content Policy](https://legal.wargaming.net/en/user-documents/content-policies/player-content-policy/view)
 
 ### 4. Contributions
 By submitting a Pull Request or contributing code to this repository, you agree to transfer all intellectual property rights of said contribution to the author. This ensures the author maintains full commercial control over the project's future.

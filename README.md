@@ -30,3 +30,5 @@ We welcome bug reports and feedback. If you wish to contribute code, please note
 
 ## Disclaimer
 TankTourney is an independent project and is not affiliated with Wargaming.net. World of Tanks, WoT, and all associated assets are trademarks of Wargaming.net.
+This work includes trademarks and/or copyrighted works that are the exclusive property of Wargaming. All rights reserved by Wargaming. This work is unofficial and is not endorsed by Wargaming.
+[Wargaming Player Content Policy](https://legal.wargaming.net/en/user-documents/content-policies/player-content-policy/view)
