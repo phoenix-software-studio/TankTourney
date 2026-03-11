@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://bleot4godk2sf"]
 
 [ext_resource type="Script" uid="uid://fg4gyhs8p0yu" path="res://scenes/ui/main/main.gd" id="1_3lgjr"]
-[ext_resource type="PackedScene" uid="uid://5opdis232aq" path="res://scenes/ui/player/online_users.tscn" id="2_kabir"]
+[ext_resource type="PackedScene" uid="uid://5opdis232aq" path="res://scenes/ui/player/online_players.tscn" id="2_kabir"]
+[ext_resource type="PackedScene" uid="uid://d4ci7fohnsnja" path="res://scenes/ui/player/player_info.tscn" id="3_a0y8i"]
 [ext_resource type="PackedScene" uid="uid://cfyvkpmw1q2bj" path="res://scenes/ui/player/player_input.tscn" id="3_nyxlg"]
+[ext_resource type="PackedScene" uid="uid://cccldyf2svyk2" path="res://scenes/ui/tournament/start_tournament.tscn" id="5_w228o"]
 
-[node name="main" type="Control" unique_id=1174146794 node_paths=PackedStringArray("label", "button", "start_view", "player_input_scene")]
+[node name="main" type="Control" unique_id=1174146794 node_paths=PackedStringArray("player_info", "start_view", "player_input_scene", "tournament_start_scene", "label", "button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,55 +14,72 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3lgjr")
-label = NodePath("active_scences/start_view/grid_container/v_box_container/label")
-button = NodePath("active_scences/start_view/grid_container/v_box_container/button")
-start_view = NodePath("active_scences/start_view")
-player_input_scene = NodePath("active_scences/player_input")
+player_info = NodePath("content_grid/active_content/v_box_container/player_info")
+start_view = NodePath("content_grid/active_content/v_box_container/view/test_view")
+player_input_scene = NodePath("content_grid/active_content/v_box_container/view/player_input")
+tournament_start_scene = NodePath("content_grid/active_content/v_box_container/view/start_tournament")
+label = NodePath("content_grid/active_content/v_box_container/view/test_view/v_box_container/label")
+button = NodePath("content_grid/active_content/v_box_container/view/test_view/v_box_container/button")
 
-[node name="active_scences" type="Control" parent="." unique_id=2140659767]
+[node name="content_grid" type="GridContainer" parent="." unique_id=491842417]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+columns = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="start_view" type="MarginContainer" parent="active_scences" unique_id=306621849]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="online_users" parent="content_grid" unique_id=998482694 instance=ExtResource("2_kabir")]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="active_content" type="MarginContainer" parent="content_grid" unique_id=1937226475]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="grid_container" type="GridContainer" parent="active_scences/start_view" unique_id=1391498273]
+[node name="v_box_container" type="VBoxContainer" parent="content_grid/active_content" unique_id=33789016]
 layout_mode = 2
-columns = 2
 
-[node name="online_users" parent="active_scences/start_view/grid_container" unique_id=998482694 instance=ExtResource("2_kabir")]
+[node name="player_info" parent="content_grid/active_content/v_box_container" unique_id=267925888 instance=ExtResource("3_a0y8i")]
+layout_mode = 2
+
+[node name="view" type="MarginContainer" parent="content_grid/active_content/v_box_container" unique_id=638231063]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="test_view" type="MarginContainer" parent="content_grid/active_content/v_box_container/view" unique_id=306621849]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="v_box_container" type="VBoxContainer" parent="content_grid/active_content/v_box_container/view/test_view" unique_id=1666833592]
 layout_mode = 2
 size_flags_horizontal = 3
-metadata/_edit_use_anchors_ = true
 
-[node name="v_box_container" type="VBoxContainer" parent="active_scences/start_view/grid_container" unique_id=1666833592]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="label" type="Label" parent="active_scences/start_view/grid_container/v_box_container" unique_id=2061398769]
+[node name="label" type="Label" parent="content_grid/active_content/v_box_container/view/test_view/v_box_container" unique_id=2061398769]
 layout_mode = 2
 text = "jhkjhkjkjkjkjhhkj"
 
-[node name="button" type="Button" parent="active_scences/start_view/grid_container/v_box_container" unique_id=2053278181]
+[node name="button" type="Button" parent="content_grid/active_content/v_box_container/view/test_view/v_box_container" unique_id=2053278181]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Zähle hoch"
 
-[node name="player_input" parent="active_scences" unique_id=1759749274 instance=ExtResource("3_nyxlg")]
+[node name="player_input" parent="content_grid/active_content/v_box_container/view" unique_id=1759749274 instance=ExtResource("3_nyxlg")]
+layout_mode = 2
+
+[node name="start_tournament" parent="content_grid/active_content/v_box_container/view" unique_id=1717116671 instance=ExtResource("5_w228o")]
 visible = false
-layout_mode = 1
+layout_mode = 2
