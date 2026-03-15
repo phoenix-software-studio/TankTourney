@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://db7p16m0c3hvj"]
+
+[ext_resource type="Script" uid="uid://ild5x4q16trs" path="res://scenes/ui/team/select_team.gd" id="1_auuwv"]
+
+[node name="select_team" type="Control" unique_id=912394787 node_paths=PackedStringArray("team_1_button", "team_2_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_auuwv")
+team_1_button = NodePath("margin_container/h_box_container/team_1_button")
+team_2_button = NodePath("margin_container/h_box_container/team_2_button")
+
+[node name="margin_container" type="MarginContainer" parent="." unique_id=1442236045]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="h_box_container" type="HBoxContainer" parent="margin_container" unique_id=2018358302]
+layout_mode = 2
+
+[node name="team_1_button" type="Button" parent="margin_container/h_box_container" unique_id=1150650363]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<team_1>"
+metadata/team_number = 1
+
+[node name="team_2_button" type="Button" parent="margin_container/h_box_container" unique_id=187072897]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<team_2>"
+metadata/team_number = 2
