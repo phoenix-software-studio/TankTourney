@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dcok6qi7n7bey" path="res://scenes/ui/tournament/start_tournament.gd" id="1_58fig"]
 
-[node name="start_tournament" type="CenterContainer" unique_id=1717116671 node_paths=PackedStringArray("start_tournament_button")]
+[node name="start" type="CenterContainer" unique_id=1717116671 node_paths=PackedStringArray("start_tournament_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_58fig")
-start_tournament_button = NodePath("start_tournament_button")
+start_tournament_button = NodePath("start_button")
 
-[node name="start_tournament_button" type="Button" parent="." unique_id=1191609119]
+[node name="start_button" type="Button" parent="." unique_id=1191609119]
 layout_mode = 2
 text = "<start_tournament>"

@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://cp67llq7cdkli"]
+
+[ext_resource type="Script" uid="uid://cwp48r302ec8m" path="res://scenes/ui/maps/map_ban_template.gd" id="1_ngrmy"]
+[ext_resource type="Texture2D" uid="uid://cw4cgbswe3heo" path="res://assets/icon/simple_icons_by_iceflower/error.svg" id="2_ngrmy"]
+[ext_resource type="Texture2D" uid="uid://b5nv28kvsct74" path="res://assets/wot/maps/18_cliff/mmap.dds" id="2_x0yk6"]
+[ext_resource type="FontFile" uid="uid://dxe706wgfxaum" path="res://assets/fonts/NotoSans-Bold.ttf" id="3_72ov5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x0yk6"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[node name="map" type="MarginContainer" unique_id=538315545 node_paths=PackedStringArray("map_texture_rect", "map_name_label", "transparency_color_rect", "cross_texture_rect", "ban_button")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_ngrmy")
+map_texture_rect = NodePath("map_texture_rect")
+map_name_label = NodePath("map_texture_rect/margin_container/map_name_label")
+transparency_color_rect = NodePath("transparency_color_rect")
+cross_texture_rect = NodePath("cross_texture_rect")
+ban_button = NodePath("margin_container/ban_button")
+
+[node name="map_texture_rect" type="TextureRect" parent="." unique_id=11442550]
+layout_mode = 2
+texture = ExtResource("2_x0yk6")
+stretch_mode = 5
+
+[node name="margin_container" type="MarginContainer" parent="map_texture_rect" unique_id=680947655]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 5.0
+offset_bottom = 108.0
+grow_horizontal = 2
+
+[node name="map_name_label" type="Label" parent="map_texture_rect/margin_container" unique_id=552735730]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_72ov5")
+theme_override_font_sizes/font_size = 75
+text = "Cliff"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cross_texture_rect" type="TextureRect" parent="." unique_id=485492145]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("2_ngrmy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="transparency_color_rect" type="ColorRect" parent="." unique_id=695919957]
+visible = false
+self_modulate = Color(0, 0, 0, 0.39215687)
+layout_mode = 2
+
+[node name="margin_container" type="Control" parent="." unique_id=428078282]
+layout_mode = 2
+
+[node name="ban_button" type="Button" parent="margin_container" unique_id=949704201]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -123.0
+offset_right = 91.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_72ov5")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_x0yk6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x0yk6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x0yk6")
+text = "<ban>"

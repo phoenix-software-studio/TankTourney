@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bleot4godk2sf"]
 
 [ext_resource type="Script" uid="uid://fg4gyhs8p0yu" path="res://scenes/ui/main/main.gd" id="1_3lgjr"]
-[ext_resource type="PackedScene" uid="uid://5opdis232aq" path="res://scenes/ui/player/online_players.tscn" id="2_kabir"]
+[ext_resource type="PackedScene" uid="uid://5opdis232aq" path="res://scenes/ui/player/player_list.tscn" id="2_kabir"]
 [ext_resource type="PackedScene" uid="uid://d4ci7fohnsnja" path="res://scenes/ui/player/player_info.tscn" id="3_a0y8i"]
 [ext_resource type="PackedScene" uid="uid://cfyvkpmw1q2bj" path="res://scenes/ui/player/player_input.tscn" id="3_nyxlg"]
 [ext_resource type="PackedScene" uid="uid://cccldyf2svyk2" path="res://scenes/ui/tournament/start_tournament.tscn" id="5_w228o"]
+[ext_resource type="PackedScene" uid="uid://cgwcm8705bsnf" path="res://scenes/ui/tournament/team_view_tournament.tscn" id="6_f7o8s"]
+[ext_resource type="PackedScene" uid="uid://c2in6owblpbbj" path="res://scenes/ui/maps/map_ban.tscn" id="7_jijnc"]
 
-[node name="main" type="Control" unique_id=1174146794 node_paths=PackedStringArray("player_info", "start_view", "player_input_scene", "tournament_start_scene", "label", "button")]
+[node name="main" type="Control" unique_id=1174146794 node_paths=PackedStringArray("player_info", "start_view", "player_input_scene", "tournament_start_scene", "team_tornament_view_scene", "map_ban_scene", "label", "button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +20,8 @@ player_info = NodePath("content_grid/active_content/v_box_container/player_info"
 start_view = NodePath("content_grid/active_content/v_box_container/view/test_view")
 player_input_scene = NodePath("content_grid/active_content/v_box_container/view/player_input")
 tournament_start_scene = NodePath("content_grid/active_content/v_box_container/view/start_tournament")
+team_tornament_view_scene = NodePath("content_grid/active_content/v_box_container/view/team_view_tournament")
+map_ban_scene = NodePath("content_grid/active_content/v_box_container/view/map_ban")
 label = NodePath("content_grid/active_content/v_box_container/view/test_view/v_box_container/label")
 button = NodePath("content_grid/active_content/v_box_container/view/test_view/v_box_container/button")
 
@@ -81,5 +85,13 @@ text = "Zähle hoch"
 layout_mode = 2
 
 [node name="start_tournament" parent="content_grid/active_content/v_box_container/view" unique_id=1717116671 instance=ExtResource("5_w228o")]
+visible = false
+layout_mode = 2
+
+[node name="team_view_tournament" parent="content_grid/active_content/v_box_container/view" unique_id=407392048 instance=ExtResource("6_f7o8s")]
+visible = false
+layout_mode = 2
+
+[node name="map_ban" parent="content_grid/active_content/v_box_container/view" unique_id=1858319487 instance=ExtResource("7_jijnc")]
 visible = false
 layout_mode = 2

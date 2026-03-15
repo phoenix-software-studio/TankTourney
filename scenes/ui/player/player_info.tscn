@@ -12,5 +12,5 @@ script = ExtResource("1_7o50s")
 player_info_timer = NodePath("player_info_timer")
 
 [node name="player_info_timer" type="Timer" parent="." unique_id=1208061028]
-wait_time = 3.0
+wait_time = 4.0
 one_shot = true

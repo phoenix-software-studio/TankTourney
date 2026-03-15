@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c2in6owblpbbj"]
+
+[ext_resource type="Script" uid="uid://csrre458c4aay" path="res://scenes/ui/maps/map_ban.gd" id="1_e0qjf"]
+[ext_resource type="PackedScene" uid="uid://dl0l2rnpxvp8h" path="res://scenes/ui/maps/map_ban_view.tscn" id="2_1nb54"]
+
+[node name="map_ban" type="MarginContainer" unique_id=1858319487 node_paths=PackedStringArray("map_ban_view")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_e0qjf")
+map_ban_view = NodePath("map_ban_view")
+
+[node name="map_ban_view" parent="." unique_id=2067689774 instance=ExtResource("2_1nb54")]
+layout_mode = 2

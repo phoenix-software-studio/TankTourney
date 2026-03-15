@@ -2,7 +2,7 @@ extends Node
 
 # Signal emitted when the state changes
 signal count_changed(new_value: int)
-signal online_users_updated(user_list: Dictionary[int, String])
+signal online_players_updated(player_list: Dictionary[int, String])
 signal admin_changed()
 signal tourney_started()
 
@@ -10,7 +10,17 @@ signal tourney_started()
 var _current_count: int = 0
 
 var _admin_peer_id: int = -1
-var _online_users: Dictionary[int, String] = {}
+var _online_players: Dictionary[int, String] = {}
+var team_assignments: Dictionary[int, int] = {} # Maps peer_id to team_id
+
+# final list of maps for the tournament
+var _tourney_maps: Array = []
+
+var map_ban_list: Dictionary[int, Array] = {}
+
+class GetMapData:
+    var name: String
+    var remaining: Array[String] = []
 
 func start_server(port: int) -> void:
     var net_peer: WebSocketMultiplayerPeer = WebSocketMultiplayerPeer.new()
@@ -29,10 +39,10 @@ func start_server(port: int) -> void:
 
     # Handle user disconnection to keep the list clean
     multiplayer.peer_disconnected.connect(func(id):
-        if self._online_users.has(id):
-            self._online_users.erase(id)
+        if self._online_players.has(id):
+            self._online_players.erase(id)
             # Sync the cleaned list to everyone
-            self.update_online_users.rpc(self._online_users)
+            self.update_online_players.rpc(self._online_players)
     )
 
 # RPC called by clients to request a change
@@ -52,20 +62,20 @@ func update_client_ui(new_value: int) -> void:
 
 # RPC called by clients to update their username
 @rpc("any_peer", "reliable")
-func update_username(new_username: String) -> void:
+func update_username(new_player_name: String) -> void:
     var peer_id = multiplayer.get_remote_sender_id()
-    # Update the online users list
-    self._online_users[peer_id] = new_username
+    # Update the online players list
+    self._online_players[peer_id] = new_player_name
     # Broadcast the updated list to all clients
-    self.update_online_users.rpc(self._online_users)
+    self.update_online_players.rpc(self._online_players)
 
     self._set_admin_user(peer_id)
 
-# RPC called to update online users list
+# RPC called to update online players list
 @rpc("authority", "call_local", "reliable")
-func update_online_users(user_list: Dictionary[int, String]) -> void:
+func update_online_players(player_list: Dictionary[int, String]) -> void:
     # Emit signal so the local UI can react
-    self.online_users_updated.emit(user_list)
+    self.online_players_updated.emit(player_list)
 
 func _on_peer_connected(id: int) -> void:
     print("Peer connected with ID: " + str(id))
@@ -80,3 +90,53 @@ func _set_admin_user(peer_id: int) -> void:
 @rpc("authority", "call_local", "reliable")
 func _notify_admin_player() -> void:
     self.admin_changed.emit()
+
+@rpc("any_peer", "call_local", "reliable")
+func add_player_to_team(team_id: int) -> void:
+    # This function would contain logic to add a player to a team
+    # For now, it's just a placeholder to show where that logic would go
+    var peer_id = multiplayer.get_remote_sender_id()
+    print("Adding player to team with ID: " + str(team_id) + " from peer ID: " + str(peer_id))
+    self.team_assignments[peer_id] = team_id
+
+@rpc("any_peer", "reliable")
+func request_tournament_start():
+    var sender_id = multiplayer.get_remote_sender_id()
+    if sender_id == _admin_peer_id:
+        # TODO: Use round int var here
+        self.map_ban_list = self._setup_tourney(1)
+        print(self.map_ban_list)
+        self._get_map_ban_list.rpc(self.map_ban_list)
+    else:
+        print("Only the admin can start the tournament!")
+
+@rpc("authority", "call_local", "reliable")
+func _get_map_ban_list(new_map_ban_list: Dictionary[int, Array]) -> void:
+    self.map_ban_list = new_map_ban_list
+    self._execute_start.rpc()
+
+@rpc("authority", "call_local", "reliable")
+func _execute_start():
+    self.tourney_started.emit()
+
+func _setup_tourney(max_rounds: int) -> Dictionary[int, Array]:
+    # Placeholder for map selection logic
+    var available_maps: Array[String] = ["01_karelia", "02_malinovka", "18_cliff"]
+    var sorted_maps_for_banning: Dictionary[int, Array] = {}
+    for tourney_round in range(max_rounds):
+        #TODO: Use for loop
+        var map_data = self._get_map(available_maps)
+        sorted_maps_for_banning[tourney_round] = []
+        sorted_maps_for_banning[tourney_round].append(map_data.name)
+        available_maps = map_data.remaining
+        map_data = self._get_map(available_maps)
+        sorted_maps_for_banning[tourney_round].append(map_data.name)
+        available_maps = map_data.remaining
+    return sorted_maps_for_banning
+
+func _get_map(available_maps: Array[String]) -> GetMapData:
+    var map_data = GetMapData.new()
+    available_maps.shuffle()
+    map_data.name = available_maps.pop_front()
+    map_data.remaining = available_maps
+    return map_data

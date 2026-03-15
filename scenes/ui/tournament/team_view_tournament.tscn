@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cgwcm8705bsnf"]
+
+[ext_resource type="Script" uid="uid://dv81uyt3mhp0e" path="res://scenes/ui/tournament/team_view_tournament.gd" id="1_ks3ek"]
+[ext_resource type="PackedScene" uid="uid://db7p16m0c3hvj" path="res://scenes/ui/team/select_team.tscn" id="2_3stwb"]
+
+[node name="team_view_tournament" type="Control" unique_id=407392048 node_paths=PackedStringArray("select_team")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ks3ek")
+select_team = NodePath("select_team")
+
+[node name="select_team" parent="." unique_id=912394787 instance=ExtResource("2_3stwb")]
+layout_mode = 1
