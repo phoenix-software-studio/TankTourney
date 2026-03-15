@@ -9,7 +9,7 @@
 ## ⚠️ Legal & Licensing Notice
 **TankTourney is PROPRIETARY software with a public source code.**
 * **Visibility:** Public for transparency and peer review.
-* **Usage:** Currently NOT licensed for public, community, or commercial use.
+* **Usage:** Currently NOT allowed for public/ personal or commercial use.
 * **Modification:** Redistribution of modified versions is strictly prohibited.
 
 *Please refer to `LICENSE.md` for the full legal text.*
@@ -24,7 +24,7 @@
 ---
 
 ## Contributing
-We welcome bug reports and feedback. If you wish to contribute code, please note that all contributions are subject to a transfer of rights to the project owner as per `LICENSE.md`. This allows for a consistent commercial roadmap.
+We welcome bug reports and feedback.
 
 ---
 
