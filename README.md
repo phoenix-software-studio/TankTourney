@@ -9,17 +9,9 @@
 ## ⚠️ Legal & Licensing Notice
 **TankTourney is PROPRIETARY software with a public source code.**
 * **Visibility:** Public for transparency and peer review.
-* **Usage:** Currently NOT allowed for public/ personal or commercial use.
-* **Modification:** Redistribution of modified versions is strictly prohibited.
+* **Usage:** Not allowed for personal or commercial use.
 
 *Please refer to `LICENSE.md` for the full legal text.*
-
----
-
-## Project Status
-* **Engine:** Godot 4.x
-* **Language:** GDScript
-* **UI Font:** Noto Sans (SIL Open Font License)
 
 ---
 

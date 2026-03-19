@@ -1,4 +1,4 @@
-# TankTourney - Proprietary Source-Available License
+# TankTourney - Proprietary Source-Available License with a public source code
 
 Copyright (c) 2026-present Phoenix Software Studio 
 
