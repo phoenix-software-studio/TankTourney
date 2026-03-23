@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GServer="*uid://ck1sn62w8bt34"
 GLogging="*uid://c8bjckmjgnwm2"
+GPlayerInfo="*uid://do13k5xgi30nb"
 
 [display]
 

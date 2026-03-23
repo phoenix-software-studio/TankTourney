@@ -1,4 +1,4 @@
-extends MarginContainer
+extends AspectRatioContainer
 
 signal map_banned(map_name: String)
 

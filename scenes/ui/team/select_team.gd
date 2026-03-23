@@ -1,6 +1,6 @@
 extends Control
 
-signal team_selected()
+signal team_selected(team_id: int)
 
 @export var team_1_button: Button
 @export var team_2_button: Button
@@ -12,9 +12,10 @@ func _ready() -> void:
     GServer.tourney_started.connect(func(): self.visible = true)
 
 func _on_team_button_pressed(button: Button):
+    var team_id: int
     # Check if the metadata exists
     if button.has_meta("team_number"):
-        var team_id = button.get_meta("team_number")
+        team_id = button.get_meta("team_number")
         
         # Now send the actual team_id to the server (ID 1)
         GServer.add_player_to_team.rpc_id(1, team_id)
@@ -25,4 +26,4 @@ func _on_team_button_pressed(button: Button):
     # Close the team selection UI after a choice is made
     self.visible = false
 
-    self.team_selected.emit()
+    self.team_selected.emit(team_id)

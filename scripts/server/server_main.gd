@@ -104,7 +104,7 @@ func request_tournament_start():
     var sender_id = multiplayer.get_remote_sender_id()
     if sender_id == _admin_peer_id:
         # TODO: Use round int var here
-        self.map_ban_list = self._setup_tourney(1)
+        self.map_ban_list = self._setup_tourney(3)
         print(self.map_ban_list)
         self._get_map_ban_list.rpc(self.map_ban_list)
     else:
@@ -121,7 +121,7 @@ func _execute_start():
 
 func _setup_tourney(max_rounds: int) -> Dictionary[int, Array]:
     # Placeholder for map selection logic
-    var available_maps: Array[String] = ["01_karelia", "02_malinovka", "18_cliff"]
+    var available_maps: Array[String] = ["01_karelia", "02_malinovka", "18_cliff", "31_airfield", "04_himmelsdorf", "35_steppes", "08_ruinberg"]
     var sorted_maps_for_banning: Dictionary[int, Array] = {}
     for tourney_round in range(max_rounds):
         #TODO: Use for loop

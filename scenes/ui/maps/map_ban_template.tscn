@@ -12,7 +12,7 @@ corner_radius_top_right = 24
 corner_radius_bottom_right = 24
 corner_radius_bottom_left = 24
 
-[node name="map" type="MarginContainer" unique_id=538315545 node_paths=PackedStringArray("map_texture_rect", "map_name_label", "transparency_color_rect", "cross_texture_rect", "ban_button")]
+[node name="map" type="AspectRatioContainer" unique_id=314145027 node_paths=PackedStringArray("map_texture_rect", "map_name_label", "transparency_color_rect", "cross_texture_rect", "ban_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,6 +29,7 @@ ban_button = NodePath("margin_container/ban_button")
 [node name="map_texture_rect" type="TextureRect" parent="." unique_id=11442550]
 layout_mode = 2
 texture = ExtResource("2_x0yk6")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="margin_container" type="MarginContainer" parent="map_texture_rect" unique_id=680947655]

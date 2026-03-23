@@ -14,6 +14,7 @@ extends Node
 # The port must be the same on server and client
 var port: int = 60000
 var host: String = "ws://127.0.0.1:"
+var team_selected: int
 
 func _ready() -> void:
     # Connect Signals
@@ -29,7 +30,7 @@ func _ready() -> void:
     GServer.admin_changed.connect(self._on_admin_changed)
     GServer.tourney_started.connect(func(): self.team_tornament_view_scene.visible = true)
 
-    self.team_tornament_view_scene.team_selected.connect(func(): self.map_ban_scene.start())
+    self.team_tornament_view_scene.team_selected.connect(self._on_team_selected)
 
     # Setup the actual Network Connection
     if OS.has_feature("dedicated_server"):
@@ -76,3 +77,7 @@ func _on_connection_failed():
 
 func _on_server_lost():
     self.player_info.set_player_info("Lost connection to server.")
+
+func _on_team_selected(team_id: int):
+    self.team_selected = team_id
+    self.map_ban_scene.start(team_id)
