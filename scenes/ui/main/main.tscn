@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cfyvkpmw1q2bj" path="res://scenes/ui/player/player_input.tscn" id="3_nyxlg"]
 [ext_resource type="PackedScene" uid="uid://cccldyf2svyk2" path="res://scenes/ui/tournament/start_tournament.tscn" id="5_w228o"]
 [ext_resource type="PackedScene" uid="uid://cgwcm8705bsnf" path="res://scenes/ui/tournament/team_view_tournament.tscn" id="6_f7o8s"]
-[ext_resource type="PackedScene" uid="uid://c2in6owblpbbj" path="res://scenes/ui/maps/map_ban.tscn" id="7_jijnc"]
+[ext_resource type="PackedScene" uid="uid://dl0l2rnpxvp8h" path="res://scenes/ui/maps/map_ban.tscn" id="7_jijnc"]
 
 [node name="main" type="Control" unique_id=1174146794 node_paths=PackedStringArray("player_info", "start_view", "player_input_scene", "tournament_start_scene", "team_tornament_view_scene", "map_ban_scene", "label", "button")]
 layout_mode = 3

@@ -18,6 +18,8 @@ var _tourney_maps: Array = []
 
 var map_ban_list: Dictionary[int, Array] = {}
 
+var player_banned_maps: Dictionary[int, Array] = {} # Maps ban round to list of banned maps name
+
 class GetMapData:
     var name: String
     var remaining: Array[String] = []
@@ -140,3 +142,7 @@ func _get_map(available_maps: Array[String]) -> GetMapData:
     map_data.name = available_maps.pop_front()
     map_data.remaining = available_maps
     return map_data
+
+@rpc("any_peer", "reliable")
+func request_map_ban(ban_round: int, map_name: String):
+    self.player_banned_maps.get_or_add(ban_round, []).append(map_name)
