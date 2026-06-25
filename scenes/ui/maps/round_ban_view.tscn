@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://b611adkujtawe"]
+
+[ext_resource type="PackedScene" uid="uid://cp67llq7cdkli" path="res://scenes/ui/maps/map_ban_template.tscn" id="1_lihdo"]
+
+[node name="grid_container" type="GridContainer" unique_id=415909850]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="empty" type="Label" parent="." unique_id=957070643]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="team_01" type="Label" parent="." unique_id=707894887]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<team_01>"
+
+[node name="team_02" type="Label" parent="." unique_id=919350268]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<team_02>"
+
+[node name="round_01" type="Label" parent="." unique_id=1034537436]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<round_01>"
+
+[node name="box_container" type="BoxContainer" parent="." unique_id=1004961035]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="map" parent="box_container" unique_id=314145027 instance=ExtResource("1_lihdo")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="map_2" parent="box_container" unique_id=879309155 instance=ExtResource("1_lihdo")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="box_container_2" type="BoxContainer" parent="." unique_id=934119984]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="round_02" type="Label" parent="." unique_id=850578051]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<round_02>"
+
+[node name="box_container_3" type="BoxContainer" parent="." unique_id=1587722125]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="box_container_4" type="BoxContainer" parent="." unique_id=30878269]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="map" parent="box_container_4" unique_id=1635498871 instance=ExtResource("1_lihdo")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="map_2" parent="box_container_4" unique_id=913168988 instance=ExtResource("1_lihdo")]
+layout_mode = 2
+size_flags_vertical = 3

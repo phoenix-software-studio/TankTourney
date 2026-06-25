@@ -30,3 +30,10 @@ func _ban_selected_map():
     self.ban_button.visible = false
     self.cross_texture_rect.visible = true
     self.map_banned.emit(self._map_name)
+
+func set_round_ban_view(map_texture: Texture, map_name: String, banned: bool):
+    self.set_map_info(map_texture, map_name)
+    if banned:
+        self.transparency_color_rect.visible = true
+        self.ban_button.visible = false
+        self.cross_texture_rect.visible = true
